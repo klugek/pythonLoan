@@ -1,0 +1,23 @@
+enter_price = int(input('Enter the loan principal:\n'))
+which_calculation = input('What do you want to calculate?\ntype "m" - for number of monthly payments,\ntype "p" - for the monthly payment:\n')
+import math
+
+if which_calculation == 'm':
+   kolik_mesicni_splatka = int(input('Enter the monthly payment:\n'))
+   splatka = math.ceil(enter_price / kolik_mesicni_splatka)
+   if splatka > 1:
+      print(f'\nIt will take {splatka} months to repay the loan')
+   else: print(f'\nIt will take {splatka} month to repay the loan')
+elif which_calculation == 'p':
+   kolik_splacet_mesicu = int(input('Enter the number of months:\n'))
+   cena_mesic = math.ceil(enter_price / kolik_splacet_mesicu)
+   last_payment = math.ceil(enter_price - (kolik_splacet_mesicu - 1) * cena_mesic)
+
+   if cena_mesic != last_payment:
+      print(f'\nYour monthly payment = {cena_mesic} and the last payment = {last_payment}')
+   else: print(f'\nYour monthly payment = {cena_mesic}')
+
+else: print('Wrong letter')
+
+
+
